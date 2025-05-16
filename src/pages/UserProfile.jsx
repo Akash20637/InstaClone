@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import instaLogo from '../assets/Instagram-logo.svg'
 import './UserProfile.css'
+import axios from 'axios'
 
 const UserProfile = ()=>{
+    let [user, setUser] = useState({})
+
+    useEffect(()=>{
+        const getuser = async()=>{
+            let userRes = await axios.get('http://localhost:3000/user/profile',{withCredentials : true})
+        }
+        getuser()
+    }, [])
     return (
         <div className='user-profile'>
 
